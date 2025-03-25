@@ -98,11 +98,11 @@ onMounted(() => {
                     class="tracking-widest"
                     @click="navigate"
                   >
-                    <img
+                    <div
                       v-if="childItem.icon"
-                      class="size-4"
-                      :src="childItem.icon"
-                    >
+                      class="size-4 [&>svg]:size-full"
+                      v-html="childItem.icon"
+                    />
                     <span>
                       {{ childItem.title }}
                     </span>

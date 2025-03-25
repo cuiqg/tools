@@ -11,8 +11,8 @@ import { cn } from '@/lib/utils'
 </script>
 
 <template>
-  <div class="mt-[-64px] flex size-full items-center justify-center font-serif">
-    <Card :class="cn('w-[380px]', 'shadow-none')">
+  <div class="flex size-full items-center justify-center font-serif">
+    <Card :class="cn('w-[420px]', 'shadow-none')">
       <CardHeader>
         <CardTitle class="text-center text-4xl slashed-zero tracking-widest">
           404

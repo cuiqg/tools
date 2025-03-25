@@ -40,16 +40,21 @@ const plainRes = ref('')
 const isError = ref(false)
 
 const digestName = (hashAlgorithm) => {
+  let algorithm = ''
   switch (hashAlgorithm) {
     case 'sha256':
-      return 'SHA-256'
-    case 'sha384':
-      return 'SHA-384'
+      algorithm = 'SHA-256'
+      break
     case 'sha512':
-      return 'SHA-512'
+      algorithm = 'SHA-512'
+      break
+    case 'sha384':
     default:
-      return 'SHA-384'
+      algorithm = 'SHA-384'
+      break
   }
+
+  return algorithm
 }
 
 const parseContentType = (contentType) => {
@@ -88,7 +93,20 @@ const integrityMetadata = async (buffer, algorithm) => {
 
   return `${algorithm}-${base64string}`
 }
+
 let htmlEL = ''
+
+const displayError = async (message = '无法获取资源') => {
+  isError.value = true
+  htmlEL = message
+  plainRes.value = htmlEL
+  htmlRes.value = await codeToHtml(htmlEL, {
+    lang: 'text',
+    theme: 'vitesse-light',
+    defaultColor: false
+  })
+}
+
 const displayResult = async (url, contentType, integrity) => {
   if (contentType) {
     switch (contentType) {
@@ -108,14 +126,7 @@ const displayResult = async (url, contentType, integrity) => {
     })
   }
   else {
-    isError.value = true
-    htmlEL = '类型不被支持'
-    plainRes.value = htmlEL
-    htmlRes.value = await codeToHtml(htmlEL, {
-      lang: 'text',
-      theme: 'vitesse-light',
-      defaultColor: false
-    })
+    displayError('类型不被支持')
   }
 }
 
@@ -126,6 +137,7 @@ const onCopy = () => {
 
 const onSubmit = form.handleSubmit(async (values) => {
   const { url, algorithm } = values
+
   plainRes.value = ''
   htmlRes.value = ''
   isError.value = false
@@ -143,25 +155,11 @@ const onSubmit = form.handleSubmit(async (values) => {
       displayResult(url, contentType, integrity)
     }
     else {
-      isError.value = true
-      htmlEL = '无法获取资源'
-      plainRes.value = htmlEL
-      htmlRes.value = await codeToHtml(htmlEL, {
-        lang: 'text',
-        theme: 'vitesse-light',
-        defaultColor: false
-      })
+      displayError()
     }
   }).catch(async (error) => {
     console.error('Fetch Error: ', error)
-    isError.value = true
-    htmlEL = '无法获取资源'
-    plainRes.value = htmlEL
-    htmlRes.value = await codeToHtml(htmlEL, {
-      lang: 'text',
-      theme: 'vitesse-light',
-      defaultColor: false
-    })
+    displayError()
   })
 })
 </script>
@@ -170,7 +168,7 @@ const onSubmit = form.handleSubmit(async (values) => {
   <div class="flex size-full items-center justify-center px-4 py-2">
     <div class="grid w-full max-w-screen-md gap-y-4">
       <form
-        class="grid w-full grid-cols-[1fr_auto_auto] gap-4"
+        class="grid w-full grid-rows-3 gap-3 md:grid-cols-[1fr_auto_auto] md:grid-rows-none"
         @submit="onSubmit"
       >
         <FormField
@@ -200,7 +198,7 @@ const onSubmit = form.handleSubmit(async (values) => {
               default-value="sha384"
             >
               <FormControl>
-                <SelectTrigger class="w-[120px]">
+                <SelectTrigger class="w-full">
                   <SelectValue placeholder="选择哈希方式" />
                 </SelectTrigger>
               </FormControl>
@@ -222,7 +220,7 @@ const onSubmit = form.handleSubmit(async (values) => {
           </FormItem>
         </FormField>
         <Button>
-          <i-lucide:joystick />
+          <i-lucide:mouse-pointer-click />
           <span>生成哈希</span>
         </Button>
       </form>
@@ -246,7 +244,7 @@ const onSubmit = form.handleSubmit(async (values) => {
             v-if="plainRes && !isError"
             size="icon"
             variant="ghost"
-            class="absolute bottom-1 right-1 [&_svg]:size-3"
+            class="absolute bottom-1.5 right-1.5 [&_svg]:size-3"
             @click="onCopy"
           >
             <i-lucide:copy />

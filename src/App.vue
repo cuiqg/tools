@@ -1,4 +1,6 @@
 <script setup>
+import { Analytics } from '@vercel/analytics/vue'
+import { SpeedInsights } from '@vercel/speed-insights/vue'
 import { Toaster } from '@/components/ui/sonner'
 
 const route = useRoute()
@@ -55,4 +57,6 @@ useHead({
 <template>
   <Toaster class="pointer-events-auto" />
   <RouterView />
+  <Analytics />
+  <SpeedInsights />
 </template>

@@ -26,6 +26,14 @@ onMounted(() => {
   initTyped()
 })
 
+watch(
+  () => props.options,
+  () => {
+    initTyped()
+  },
+  { deep: true }
+)
+
 onBeforeUnmount(() => {
   typedInstance?.destroy()
 })
