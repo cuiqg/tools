@@ -8,9 +8,7 @@ import { SidebarTrigger } from '@/components/ui/sidebar'
       <div class="inline-flex items-center justify-center">
         <SidebarTrigger />
       </div>
-      <div class="inline-flex items-center justify-center">
-        {{ $route.meta?.title }}
-      </div>
+
       <div class="inline-flex items-center justify-center">
         <ThemeProvider />
       </div>

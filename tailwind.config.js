@@ -69,7 +69,7 @@ export default {
     },
     fontFamily: {
       sans: ['Noto Sans SC', ...defaultTheme.fontFamily.sans],
-      serif: ['Noto Serif SC', ...defaultTheme.fontFamily.serif]
+      serif: ['ZCOOL XiaoWei', ...defaultTheme.fontFamily.serif]
     }
   },
   plugins: [require('tailwindcss-animate')]

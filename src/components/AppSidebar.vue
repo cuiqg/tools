@@ -26,7 +26,7 @@ const pkgLoading = ref(true)
 onMounted(() => {
   setTimeout(() => {
     pkgLoading.value = false
-  }, 3000)
+  }, 1600)
 })
 </script>
 

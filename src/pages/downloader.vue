@@ -94,7 +94,12 @@ const onSubmit = form.handleSubmit(async (values) => {
 
 <template>
   <div class="flex size-full items-center justify-center px-4 py-2">
-    <div class="grid w-full max-w-screen-md gap-y-4">
+    <div class="grid w-full max-w-screen-md gap-y-20">
+      <div class="flex w-full items-center justify-center">
+        <h1 class="font-serif text-4xl leading-none  text-foreground">
+          {{ $route.meta?.title }}
+        </h1>
+      </div>
       <form
         class="grid w-full grid-rows-3 gap-3 md:grid-cols-[auto_1fr_auto] md:grid-rows-none"
         @submit="onSubmit"
