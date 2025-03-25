@@ -50,6 +50,13 @@ useHead({
       name: 'color-scheme',
       content: 'dark light'
     }
+  ],
+  script: [
+    {
+      'src': 'https://stats.tsuiqg.me/script.js',
+      'defer': true,
+      'data-website-id': '6b04f2c0-8c7a-4a15-8975-c9ac8caa3ed4'
+    }
   ]
 })
 </script>
