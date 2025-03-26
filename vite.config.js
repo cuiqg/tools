@@ -12,8 +12,9 @@ import { VueRouterAutoImports } from 'unplugin-vue-router'
 import VueRouter from 'unplugin-vue-router/vite'
 import { defineConfig } from 'vite'
 import Layouts from 'vite-plugin-vue-layouts'
-import autoprefixer from 'autoprefixer'
-import tailwind from 'tailwindcss'
+import Autoprefixer from 'autoprefixer'
+import Tailwind from 'tailwindcss'
+import Imagemin from 'unplugin-imagemin/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -25,8 +26,8 @@ export default defineConfig({
   css: {
     postcss: {
       plugins: [
-        tailwind(),
-        autoprefixer()
+        Tailwind(),
+        Autoprefixer()
       ]
     }
   },
@@ -73,6 +74,7 @@ export default defineConfig({
       compiler: 'vue3',
       autoInstall: true
     }),
+    Imagemin(),
     Unfonts({
       google: {
         preconnect: true,

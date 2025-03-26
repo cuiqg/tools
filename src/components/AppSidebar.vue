@@ -131,7 +131,7 @@ onMounted(() => {
               target="_blank"
             >
               <i-lucide:info class="text-zinc-400" />
-              <span class="text-zinc-600 dark:text-zinc-400">
+              <span class="leading-none text-zinc-600 dark:text-zinc-400">
                 {{ `v${pkgJson.version}` }}
               </span>
             </a>
