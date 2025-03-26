@@ -3,8 +3,13 @@ export default {
   media: [
     {
       title: '优设网',
-      link: 'https://www.uisdc.com/'
+      link: 'https://uisdc.com/'
+    },
+    {
+      title: 'UIIIUIII',
+      link: 'https://uiiiuiii.com/'
     }
+
   ],
   // 设计规范
   specs: [
