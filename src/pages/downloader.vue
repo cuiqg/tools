@@ -151,7 +151,7 @@ const onSubmit = form.handleSubmit(async (values) => {
             <FormMessage />
           </FormItem>
         </FormField>
-        <Button>
+        <Button class="mt-6 md:mt-0">
           <i-lucide:mouse-pointer-click />
           <span>生成下载链接</span>
         </Button>

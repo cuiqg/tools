@@ -224,7 +224,7 @@ const onSubmit = form.handleSubmit(async (values) => {
             <FormMessage />
           </FormItem>
         </FormField>
-        <Button>
+        <Button class="mt-6 md:mt-0">
           <i-lucide:mouse-pointer-click />
           <span>生成哈希</span>
         </Button>

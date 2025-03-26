@@ -17,7 +17,7 @@ defineProps({
     :href="$props.site.link"
     rel="noopener"
     target="_blank"
-    class="relative flex h-auto w-full flex-col gap-y-3 rounded-md border border-zinc-100 bg-zinc-50 p-4 transition-shadow hover:cursor-pointer hover:drop-shadow"
+    class="relative flex h-auto w-full flex-col gap-y-3 rounded-md border border-zinc-100 bg-zinc-50 p-4 transition-shadow hover:cursor-pointer hover:drop-shadow dark:border-zinc-800 dark:bg-zinc-900"
   >
     <div class="flex w-full flex-row items-center justify-start gap-x-2">
       <div class="size-5">
@@ -25,7 +25,7 @@ defineProps({
           :url="$props.site.link"
         />
       </div>
-      <div class="line-clamp-1 flex-1 text-sm font-semibold tracking-widest text-foreground">
+      <div class="line-clamp-1 flex-1 text-sm font-semibold leading-none tracking-widest text-foreground">
         {{ $props.site.title }}
       </div>
     </div>
