@@ -81,13 +81,18 @@ export default defineConfig({
         preconnectUrl: 'https://use.sevencdn.com',
         fontBaseUrl: 'https://use.sevencdn.com/css2',
         display: 'swap',
-        families: [{
-          name: 'Noto+Sans+SC',
-          styles: 'wght@100..900'
-        },
-        {
-          name: 'ZCOOL+XiaoWei'
-        }]
+        families: [
+          {
+            name: 'ZCOOL+XiaoWei',
+            styles: 'wght@400',
+            defer: false
+          },
+          {
+            name: 'Noto+Sans+SC',
+            styles: 'wght@100..900',
+            defer: false
+          }
+        ]
       }
     })
   ]

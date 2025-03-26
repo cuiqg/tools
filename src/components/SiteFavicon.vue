@@ -2,10 +2,16 @@
 import { Skeleton } from '@/components/ui/skeleton'
 import { cn } from '@/lib/utils'
 
-defineProps({
+const props = defineProps({
   url: {
     type: String,
-    required: true
+    required: false,
+    default: ''
+  },
+  icon: {
+    type: String,
+    required: false,
+    default: ''
   },
   class: {
     type: String,
@@ -25,6 +31,7 @@ defineProps({
 })
 
 const loading = ref(true)
+const link = ref('')
 
 const getHostName = (url) => {
   try {
@@ -37,6 +44,14 @@ const getHostName = (url) => {
 }
 
 watchEffect(() => {
+  if (props.icon) {
+    link.value = props.icon
+  }
+
+  if (props.url) {
+    link.value = `https://favicon.im/${getHostName(props.url)}?larger=true`
+  }
+
   setTimeout(() => {
     loading.value = false
   }, 1200)
@@ -46,16 +61,12 @@ watchEffect(() => {
 <template>
   <Skeleton
     v-if="loading"
-    :class="cn($props.class)"
-    :width="$props.width"
-    :height="$props.height"
+    :class="cn(`size-full rounded-full`, $props.class)"
   />
   <img
     v-else
-    :class="cn($props.class)"
-    :width="$props.width"
-    :height="$props.height"
-    :src="`https://favicon.im/${getHostName($props.url)}?larger=true`"
+    :class="cn(`object-contain object-center rounded-full size-full`, $props.class)"
+    :src="link"
     alt="Favicon"
     role="alert"
   >
