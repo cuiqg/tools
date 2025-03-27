@@ -113,8 +113,13 @@ export default {
     },
     {
       title: '量子资源',
-      desc: '',
+      desc: '使用量子CDN加速，速度快到无法想象',
       link: 'https://lzizy.net/'
+    },
+    {
+      title: '小鸡资源',
+      desc: 'XXX 资源采集站',
+      link: 'https://xiaojizy.live/'
     }
   ]
 }
