@@ -6,6 +6,7 @@ defineProps({
     default: () => ({
       title: '',
       desc: '',
+      icon: '',
       link: ''
     })
   }
@@ -23,6 +24,7 @@ defineProps({
       <div class="size-5">
         <SiteFavicon
           :url="$props.site.link"
+          :icon="$props.site.icon"
         />
       </div>
       <div class="line-clamp-1 flex-1 text-sm font-semibold leading-none tracking-widest text-foreground">
