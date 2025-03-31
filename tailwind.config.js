@@ -1,5 +1,6 @@
 import defaultTheme from 'tailwindcss/defaultTheme'
-
+import animate from 'tailwindcss-animate'
+import { setupInspiraUI } from '@inspira-ui/plugins'
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ['class'],
@@ -72,5 +73,5 @@ export default {
       serif: ['ZCOOL XiaoWei', ...defaultTheme.fontFamily.serif]
     }
   },
-  plugins: [require('tailwindcss-animate')]
+  plugins: [animate, setupInspiraUI]
 }

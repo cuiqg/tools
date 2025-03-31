@@ -1,11 +1,7 @@
-<script setup>
-import { SidebarProvider } from '@/components/ui/sidebar'
-</script>
-
 <template>
   <SidebarProvider>
     <AppSidebar />
-    <div class="grid flex-1 grid-rows-[auto_1fr_auto]">
+    <div class="relative grid flex-1 grid-rows-[auto_1fr]">
       <AppHeader />
       <main class="relative">
         <RouterView v-slot="{ Component, route }">
