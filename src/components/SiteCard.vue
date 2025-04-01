@@ -20,7 +20,6 @@ defineProps({
     target="_blank"
     data-umami-event="click_site_card"
     :data-umami-event-title="$props.site.title"
-    :data-umami-event-link="$props.site.link"
     class="relative flex h-auto w-full flex-col gap-y-3 rounded-md border border-zinc-100 bg-zinc-50 p-4 transition-shadow hover:cursor-pointer hover:drop-shadow dark:border-zinc-800 dark:bg-zinc-900"
   >
     <div class="flex w-full flex-row items-center justify-start gap-x-2">
