@@ -3,7 +3,7 @@
     <AppSidebar />
     <div class="relative grid flex-1 grid-rows-[auto_1fr]">
       <AppHeader />
-      <main class="relative">
+      <main class="relative w-full">
         <RouterView v-slot="{ Component, route }">
           <component
             :is="Component"
